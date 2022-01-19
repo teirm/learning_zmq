@@ -1,5 +1,4 @@
 # Chapter 1 CmakeLists
-
 add_exec(hwserver.c)
 add_exec(hwclient.c)
 add_exec(version.c)
