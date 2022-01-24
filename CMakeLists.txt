@@ -9,13 +9,13 @@ set(CMAKE_C_FLAGS "-g -Wall -Wextra")
 
 # Helper functions
 function (add_exec file)
-    string(REGEX MATCH "[_A-Za-z]+" name ${file})
+    string(REGEX MATCH "[_A-Za-z0-9]+" name ${file})
     add_executable(${name} ${file})
     set_target_properties(${name}
-                      PROPERTIES 
-                      RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/ch1)
-    target_link_libraries(${name}
-                          PRIVATE zmq)
+                      PROPERTIES
+                      RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/bin/)
+
+    target_link_libraries(${name} PRIVATE zmq)
     target_include_directories(${name}
                                PRIVATE ${PROJECT_SOURCE_DIR}/include)
 endfunction()
